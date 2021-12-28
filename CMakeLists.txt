@@ -259,71 +259,9 @@ else()
 add_dependencies(bakuage optim)
 endif()
 
-add_executable(build_test src/build_test/main.cpp)
-target_link_libraries(build_test
-  bakuage
-)
-
-file(GLOB BAKUAGE_SND_FILE_INFO_SOURCES src/snd_file_info/*)
-message("BAKUAGE_SND_FILE_INFO_SOURCES: ${BAKUAGE_SND_FILE_INFO_SOURCES}")
-add_executable(snd_file_info ${BAKUAGE_SND_FILE_INFO_SOURCES})
-target_link_libraries(snd_file_info
-  bakuage
-)
-
-file(GLOB BAKUAGE_AUDIO_ANALYZER_SOURCES src/audio_analyzer/*)
-message("BAKUAGE_AUDIO_ANALYZER_SOURCES: ${BAKUAGE_AUDIO_ANALYZER_SOURCES}")
-add_executable(audio_analyzer ${BAKUAGE_AUDIO_ANALYZER_SOURCES} ${TINY_PROCESS_SOURCES})
-target_link_libraries(audio_analyzer
-  bakuage
-)
-
-file(GLOB BAKUAGE_TEST_SOURCES src/test/*)
-message("BAKUAGE_TEST_SOURCES: ${BAKUAGE_TEST_SOURCES}")
-add_executable(test ${BAKUAGE_TEST_SOURCES})
-target_link_libraries(test
-  bakuage
-  gtest
-)
-
 file(GLOB BAKUAGE_PHASE_LIMITER_SOURCES src/phase_limiter/*)
 message("BAKUAGE_PHASE_LIMITER_SOURCES: ${BAKUAGE_PHASE_LIMITER_SOURCES}")
 add_executable(phase_limiter ${BAKUAGE_PHASE_LIMITER_SOURCES} ${TINY_PROCESS_SOURCES})
 target_link_libraries(phase_limiter
   bakuage
-)
-
-file(GLOB BAKUAGE_SPECTROGRAM_SOURCES src/spectrogram/*)
-message("BAKUAGE_SPECTROGRAM_SOURCES: ${BAKUAGE_SPECTROGRAM_SOURCES}")
-add_executable(spectrogram ${BAKUAGE_SPECTROGRAM_SOURCES})
-target_link_libraries(spectrogram
-bakuage
-)
-
-file(GLOB BAKUAGE_AUDIO_VISUALIZER_SOURCES src/audio_visualizer/*)
-message("BAKUAGE_AUDIO_VISUALIZER_SOURCES: ${BAKUAGE_AUDIO_VISUALIZER_SOURCES}")
-add_executable(audio_visualizer ${BAKUAGE_AUDIO_VISUALIZER_SOURCES})
-target_link_libraries(audio_visualizer
-bakuage
-)
-
-file(GLOB BAKUAGE_CLEAR_MIXER_SOURCES src/clear_mixer/*)
-message("BAKUAGE_CLEAR_MIXER_SOURCES: ${BAKUAGE_CLEAR_MIXER_SOURCES}")
-add_executable(clear_mixer ${BAKUAGE_CLEAR_MIXER_SOURCES})
-target_link_libraries(clear_mixer
-bakuage
-)
-
-file(GLOB BAKUAGE_EFFECT_TEST_SOURCES src/effect_test/*)
-message("BAKUAGE_EFFECT_TEST_SOURCES: ${BAKUAGE_EFFECT_TEST_SOURCES}")
-add_executable(effect_test ${BAKUAGE_EFFECT_TEST_SOURCES})
-target_link_libraries(effect_test
-bakuage
-)
-
-file(GLOB BAKUAGE_BENCH_SOURCES src/bench/* src/phase_limiter/Grad*.cpp)
-message("BAKUAGE_BENCH_SOURCES: ${BAKUAGE_BENCH_SOURCES}")
-add_executable(bench ${BAKUAGE_BENCH_SOURCES})
-target_link_libraries(bench
-bakuage
 )
