@@ -4,6 +4,7 @@
 #include <cassert>
 #include <stdexcept>
 #include <vector>
+#include <boost/format.hpp>
 #include "bakuage/window_func.h"
 #include "bakuage/utils.h"
 
@@ -61,13 +62,13 @@ namespace bakuage {
         freq2 *= 2;
 
         if (n % 2 != 1) {
-            throw std::logic_error(std::format("CalculateFir: n must be odd number, got: {}", n));
+            throw std::logic_error(boost::format{"CalculateFir: n must be odd number, got: %1%"} % n);
         }
         if (freq1 < 0 || freq1 > 1) {
-            throw std::logic_error(std::format("CalculateFir: freq1 must be in [0, 1], got: {}", freq1));
+            throw std::logic_error(boost::format{"CalculateFir: freq1 must be in [0, 1], got: %1%"} % freq1);
         }
         if (freq1 > freq2) {
-            throw std::logic_error(std::format("CalculateFir: freq1 must be <= freq2, got: {} > {}", freq1, freq2));
+            throw std::logic_error(boost::format{"CalculateFir: freq1 must be <= freq2, got: %1% > %2%"} % freq1 % freq2);
         }
 
         int center = (n - 1) / 2;
