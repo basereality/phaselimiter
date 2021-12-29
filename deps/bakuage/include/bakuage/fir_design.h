@@ -61,13 +61,13 @@ namespace bakuage {
         freq2 *= 2;
 
         if (n % 2 != 1) {
-            throw std::logic_error("CalculateFir: n must be odd number.");
+            throw std::logic_error(std::format("CalculateFir: n must be odd number, got: {}", n));
         }
         if (freq1 < 0 || freq1 > 1) {
-            throw std::logic_error("CalculateFir: freq1 must be in [0, 1].");
+            throw std::logic_error(std::format("CalculateFir: freq1 must be in [0, 1], got: {}", freq1));
         }
         if (freq1 > freq2) {
-            throw std::logic_error("CalculateFir: freq1 must be <= freq2.");
+            throw std::logic_error(std::format("CalculateFir: freq1 must be <= freq2, got: {} > {}", freq1, freq2));
         }
 
         int center = (n - 1) / 2;
