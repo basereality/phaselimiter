@@ -64,7 +64,7 @@ namespace bakuage {
             throw std::logic_error("CalculateFir: n must be odd number.");
         }
         if (freq1 < 0 || freq1 > 1) {
-            throw std::logic_error("CalculateFir: freq1 must be in [0, 1], got: " + freq1);
+            throw std::logic_error("CalculateFir: freq1 must be in [0, 1], got: " + std::to_string(freq1));
         }
         if (freq1 > freq2) {
             throw std::logic_error("CalculateFir: freq1 must be <= freq2.");
