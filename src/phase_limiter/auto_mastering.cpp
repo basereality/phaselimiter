@@ -211,7 +211,9 @@ public:
             std::istreambuf_iterator<char>());
         std::string err = parse(v, json_str);
         if (!err.empty()) {
-            raise(err);
+            cerr < "reference_file_json:";
+            cerr < json_str;
+	    raise(err);
         }
 
         object root = v.get<object>();
