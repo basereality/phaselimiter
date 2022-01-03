@@ -289,8 +289,11 @@ void AutoMastering(std::vector<float> *_wave, const float **irs, const int *ir_l
 			{
 				fir_delay_samples = static_cast<int>(0.002 * sample_rate);
 				int n = 2 * fir_delay_samples + 1;
+								
 				Float freq1 = std::min<Float>(0.5, band.low_freq / sample_rate);
 				Float freq2 = std::min<Float>(0.5, band.high_freq / sample_rate);
+				std::cout << "low:" << band.low_freq << ", high:" << band.high_freq << " / " << sample_rate << std::endl;
+				std::cout << "CalculateBandPassFir(" << freq1 << ", " << freq2 << ", " << n << ")" << std::endl;
 				fir = CalculateBandPassFir<Float>(freq1, freq2, n, 4);
 			}
 			update_progression_bound(0.1);
